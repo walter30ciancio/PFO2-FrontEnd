@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honda Motos - Siente el Poder de la Libertad</title>
+    <!-- Librería FontAwesome para los logos de Redes Sociales y Flechas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variables de Diseño */
+        :root {
+            --honda-red: #cc0000;
+            --dark-bg: #111111;
+            --light-bg: #f8f9fa;
+            --text-dark: #222222;
+            --text-light: #ffffff;
+            --gray-text: #666666;
+            --transition: all 0.3s ease;
+        }
+
+        /* Estilos Globales */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { color: var(--text-dark); background-color: var(--text-light); line-height: 1.6; }
+        section { padding: 80px 10%; }
+
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; position: relative; text-transform: uppercase; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--honda-red); margin: 10px auto 0; }
+
+        /* Header Minimalista */
+        header {
+            background-color: var(--dark-bg); padding: 15px 5%; display: flex; justify-content: space-between;
+            align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid var(--honda-red);
+        }
+        .logo { color: var(--text-light); font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        .logo span { color: var(--honda-red); }
+        .header-cta { background-color: var(--honda-red); color: var(--text-light); padding: 8px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; transition: var(--transition); font-size: 14px; }
+        .header-cta:hover { background-color: #aa0000; transform: translateY(-2px); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; margin-top: 60px;
+        }
+        .hero h1 { color: var(--text-light); font-size: 3.5rem; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .hero p { color: #dddddd; font-size: 1.5rem; max-width: 600px; margin-bottom: 30px; }
+        .btn-main { background-color: var(--honda-red); color: var(--text-light); padding: 15px 40px; font-size: 18px; font-weight: bold; text-decoration: none; border-radius: 4px; text-transform: uppercase; transition: var(--transition); box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4); }
+        .btn-main:hover { background-color: #aa0000; transform: scale(1.05); }
+
+        /* Sobre Nosotros / Descripción */
+        .about { background-color: var(--light-bg); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .about-content h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--honda-red); }
+        .about-content p { color: var(--gray-text); margin-bottom: 20px; }
+        .about-media img { width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* Beneficios */
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .benefit-card { background: #fff; padding: 30px; border-radius: 8px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 3px solid transparent; transition: var(--transition); }
+        .benefit-card:hover { border-top-color: var(--honda-red); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .benefit-icon { font-size: 40px; margin-bottom: 15px; }
+        .benefit-card h3 { margin-bottom: 10px; font-size: 1.4rem; }
+        .benefit-card p { color: var(--gray-text); font-size: 0.95rem; }
+
+        /* Carrusel de Diapositivas */
+        .carousel-section { background-color: var(--text-light); overflow: hidden; position: relative; }
+        .carousel-container { max-width: 800px; margin: 0 auto; position: relative; }
+        .carousel-slides { display: flex; transition: transform 0.5s ease-in-out; }
+        .moto-slide { flex: 0 0 100%; text-align: center; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .moto-slide img { max-width: 100%; height: 350px; object-fit: contain; border-radius: 8px; margin-bottom: 20px; }
+        .moto-slide h3 { color: var(--honda-red); font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 2rem; padding: 10px 15px; cursor: pointer; border-radius: 50%; transition: background-color 0.3s ease; z-index: 10; }
+        .carousel-btn:hover { background-color: rgba(204, 0, 0, 0.8); }
+        .carousel-btn.prev { left: -60px; }
+        .carousel-btn.next { right: -60px; }
+
+        /* NUEVO: Video Enlace 200px con XR 250 */
+        .multimedia-showcase { background-color: var(--dark-bg); color: var(--text-light); text-align: center; }
+        
+        .video-wrapper { 
+            width: 200px; 
+            height: 200px; 
+            margin: 0 auto; 
+            position: relative; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(204, 0, 0, 0.3); 
+            border: 3px solid #333; 
+            display: block;
+        }
+        
+        .video-cover { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            /* Imagen de Honda XR 250 */
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Honda_XR250_Tornado.jpg/800px-Honda_XR250_Tornado.jpg') no-repeat center center/cover;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-decoration: none;
+            transition: transform 0.4s ease; 
+        }
+        
+        .video-cover::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); transition: background 0.3s ease;}
+        .video-cover:hover { transform: scale(1.05); }
+        .video-cover:hover::before { background: rgba(0,0,0,0.3); }
+
+        .play-button { position: relative; font-size: 4rem; color: #fff; opacity: 0.9; transition: transform 0.3s ease, color 0.3s ease; }
+        .video-cover:hover .play-button { transform: scale(1.1); color: var(--honda-red); }
+
+        /* Prueba Social (Logos sin texto) */
+        .social-proof { background-color: var(--light-bg); }
+        .logos-zone { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; margin-bottom: 60px; }
+        
+        .sponsor { display: flex; justify-content: center; align-items: center; cursor: default; }
+        .sponsor img { height: 75px; object-fit: contain; filter: grayscale(100%) opacity(0.6); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease; }
+        /* Animación Hover de las marcas */
+        .sponsor:hover img { filter: grayscale(0%) opacity(1); transform: scale(1.2) translateY(-5px); }
+
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: var(--text-light); padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .testimonial-text { font-style: italic; color: var(--gray-text); margin-bottom: 15px; }
+        .testimonial-author { font-weight: bold; color: var(--text-dark); }
+        .testimonial-author span { display: block; font-size: 0.85rem; color: var(--honda-red); font-weight: normal; }
+
+        /* Formulario de Contacto */
+        .contact-section {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            color: var(--text-light); display: flex; flex-direction: column; align-items: center;
+        }
+        .form-container { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 40px; border-radius: 8px; width: 100%; max-width: 500px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+        .form-container h3 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; }
+        .form-container p { text-align: center; color: #ccc; font-size: 0.9rem; margin-bottom: 25px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; letter-spacing: 1px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.5); color: var(--text-light); border-radius: 4px; font-size: 16px; transition: var(--transition); }
+        .form-group input:focus { outline: none; border-color: var(--honda-red); background: rgba(0,0,0,0.7); }
+        .btn-submit { width: 100%; background-color: var(--honda-red); color: var(--text-light); border: none; padding: 14px; font-size: 16px; font-weight: bold; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: var(--transition); }
+        .btn-submit:hover { background-color: #aa0000; }
+
+        /* Footer */
+        footer { background-color: #0b0b0b; color: #888888; text-align: center; padding: 50px 20px; font-size: 0.9rem; border-top: 1px solid #222; }
+        .social-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
+        .social-link { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #888888; text-decoration: none; transition: var(--transition); font-weight: bold; }
+        .social-link i { font-size: 28px; transition: transform 0.3s ease; }
+        .social-link:hover { color: var(--honda-red); }
+        .social-link:hover i { transform: translateY(-3px); }
+
+        /* Adaptabilidad Móvil */
+        @media (max-width: 900px) {
+            .carousel-btn.prev { left: 10px; }
+            .carousel-btn.next { right: 10px; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .about { grid-template-columns: 1fr; }
+            section { padding: 60px 5%; }
+            .moto-slide img { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera Minimalista -->
+    <header>
+        <div class="logo">HONDA<span>.</span></div>
+        <a href="#contacto" class="header-cta">Cotizar Ahora</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Siente el Poder de la Libertad</h1>
+        <p>Descubre la ingeniería, confiabilidad y adrenalina que solo una moto Honda te puede brindar.</p>
+        <a href="#contacto" class="btn-main">Iniciar Aventura</a>
+    </section>
+
+    <!-- Sobre Nosotros / Descripción -->
+    <section class="about">
+        <div class="about-content">
+            <h3>Ingeniería Confiable sobre Dos Ruedas</h3>
+            <p>En Honda, no solo fabricamos motocicletas; creamos experiencias de vida. Con décadas liderando el mercado global, cada uno de nuestros modelos está diseñado bajo los más altos estándares de seguridad, innovación tecnológica y eficiencia de combustible.</p>
+        </div>
+        <div class="about-media">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800" alt="Línea de motos Honda">
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="benefits">
+        <h2 class="section-title">¿Por qué elegir una Honda?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Seguridad</h3>
+                <p>Sistemas de frenado ABS avanzados y control de tracción.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Rendimiento</h3>
+                <p>Motores eficientes que ofrecen potencia con menor consumo.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚙️</div>
+                <h3>Durabilidad</h3>
+                <p>El mayor valor de reventa gracias a la calidad de materiales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel de Diapositivas (JavaScript) -->
+    <section class="carousel-section">
+        <h2 class="section-title">Encuentra tu compañera ideal</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel-slides" id="carouselSlides">
+                <div class="moto-slide">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Honda_Tornado.jpg" alt="Tornado 250">
+                    <h3>Tornado 250</h3>
+                </div>
+                <!-- Moto Reemplazada: Africa Twin -->
+                <div class="moto-slide">
+                    <img src="https://xpertmoto.com.au/cdn/shop/files/Honda-CRF1100L-Africa-Twin-ES-best-motorcycle-rental-sydney_60c59c3b-e6bb-4988-a7ca-3d39fe72044d.png?v=1776637592" alt="CRF1100L Africa Twin ES">
+                    <h3>CRF1100L Africa Twin ES</h3>
+                </div>
+                <div class="moto-slide">
+                    <img src="https://images.unsplash.com/photo-1558981001-1995369a39cd?auto=format&fit=crop&q=80&w=500" alt="XR 150">
+                    <h3>XR 150</h3>
+                </div>
+                <div class="moto-slide">
+                    <img src="http://xpertmoto.com.au/cdn/shop/files/honda-cb100r-hire-motorcycle-sydney-xpert_2017c0e7-585b-4a9e-b717-400cb62fc98c.png?v=1762814397" alt="CB 1000R">
+                    <h3>CB 1000R</h3>
+                </div>
+                <div class="moto-slide">
+                    <img src="https://www.bikewale.com/n/cw/ec/114669/x-blade-right-side-view-2.png?isig=0" alt="X-Blade 160">
+                    <h3>X-Blade 160</h3>
+                </div>
+                <div class="moto-slide">
+                    <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/179251/crf300l-right-side-view.png?isig=0&q=80" alt="XR 300L">
+                    <h3>XR 300L</h3>
+                </div>
+            </div>
+            <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Multimedia Showcase: Botón Enlace 200px con XR 250 -->
+    <section class="multimedia-showcase">
+        <h2 class="section-title" style="color: var(--text-light);">El Poder en Acción</h2>
+        <p style="margin-bottom: 40px; color: #ccc;">Haz clic para ver de lo que somos capaces cuando la ingeniería se une con la pasión.</p>
+        
+        <!-- Enlace que dirige directamente al Short con fondo de XR 250 -->
+        <a href="https://www.youtube.com/shorts/kBrEvwQ5odA" target="_blank" class="video-wrapper">
+            <div class="video-cover">
+                <i class="fas fa-play-circle play-button"></i>
+            </div>
+        </a>
+    </section>
+
+    <!-- Prueba Social (Solo Logos interactivos) -->
+    <section class="social-proof">
+        <h2 class="section-title">Respaldado por los mejores</h2>
+        <div class="logos-zone">
+            <div class="sponsor">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Honda_Racing_logo_%282022%29.svg/960px-Honda_Racing_logo_%282022%29.svg.png" alt="HRC Racing Logo">
+            </div>
+            <div class="sponsor">
+                <img src="https://cdn.freebiesupply.com/logos/large/2x/repsol-7-logo-png-transparent.png" alt="Repsol Logo">
+            </div>
+            <div class="sponsor">
+                <img src="https://brandlogos.net/wp-content/uploads/2015/11/monster_energy-logo_brandlogos.net_4my5g.png" alt="Monster Energy Logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section class="contact-section" id="contacto">
+        <div class="form-container">
+            <h3>¿Listo para dar el siguiente paso?</h3>
+            <p>Déjanos tus datos y un asesor te contactará con una oferta exclusiva.</p>
+            <form onsubmit="event.preventDefault(); alert('¡Gracias! Nos comunicaremos contigo muy pronto.'); this.reset();">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <button type="submit" class="btn-submit">Quiero mi Cotización</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i>Facebook</a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i>X (Twitter)</a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i>YouTube</a>
+        </div>
+        <p>&copy; 2026 Honda Motos Landing Page. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts para Carrusel -->
+    <script>
+        const slides = document.getElementById('carouselSlides');
+        const slideCount = document.querySelectorAll('.moto-slide').length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : slideCount - 1;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex < slideCount - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+
+        // Autoplay del carrusel (5 segundos)
+        setInterval(() => {
+            currentIndex = (currentIndex < slideCount - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        }, 5000);
+    </script>
+</body>
+</html>

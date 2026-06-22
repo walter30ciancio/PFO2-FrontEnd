@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora de Proyecto: Landing Page Honda</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Encabezado */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Tarjetas de Prompts */
+        .prompt-card {
+            background-color: #f8f9fa;
+            border-left: 5px solid #e74c3c; /* Rojo Honda */
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
+
+        .prompt-card:hover {
+            transform: translateX(5px);
+        }
+
+        .prompt-title {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Estilos de contenido del texto */
+        ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        /* Enlaces */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Documentación del Proyecto</h1>
+        <p class="subtitle">Historial de Prompts para la creación de Landing Page de Motos Honda</p>
+
+        <div class="prompt-card">
+            <div class="prompt-title">📝 Primer PROMPT</div>
+            <p>crear una landing page sobre motos marca honda</p>
+            <p><strong>Requisitos mínimos de la Landing Page a generar:</strong></p>
+            <ul>
+                <li>Cabecera (Header con menú de navegación).</li>
+                <li>Hero Section (Sección principal con título impactante y botón de llamada a la acción - CTA).</li>
+                <li>Descripción / Sobre Nosotros.</li>
+                <li>Sección de Servicios o Características principales.</li>
+                <li>Testimonios o Reseñas de clientes.</li>
+                <li>Formulario de contacto (Maquetado visual, no requiere funcionalidad backend).</li>
+                <li>Pie de página (Footer) con enlaces a redes sociales.</li>
+            </ul>
+            <p><strong>La estructura debe ser:</strong></p>
+            <ul>
+                <li><strong>Titular y subtítulo:</strong> Deben comunicar la propuesta de valor en menos de 5 segundos.</li>
+                <li><strong>Contenido multimedia:</strong> Usa imágenes de alta calidad y un video que muestre tu producto en acción.</li>
+                <li><strong>Formulario o CTA:</strong> Pide solo la información indispensable nombre y email para reducir la fricción.</li>
+                <li><strong>Sección de beneficios:</strong> Explica cómo el producto mejora la vida del cliente.</li>
+                <li><strong>Prueba social:</strong> Agrega logotipo de empresa y casos de éxito para generar confianza.</li>
+                <li><strong>Navegación limpia:</strong> Elimina el menú superior y enlaces externos para que el usuario no se distraiga y complete la acción.</li>
+            </ul>
+        </div>
+
+        <div class="prompt-card">
+            <div class="prompt-title">⚙️ Segundo PROMPT</div>
+            <p>cambiar el video que sea este <a href="https://www.youtube.com/shorts/kBrEvwQ5odA" target="_blank">https://www.youtube.com/shorts/kBrEvwQ5odA</a></p>
+            <p>agregar antes del video un carrusel mostrando seis motos: Tornado 250, XR 190, XR 150, CB 1000R, X-Blade 160 y XR 300L.</p>
+            <p>Una vez que envien los datos de contacto y muestre el mensaje "¡Gracias! Nos comunicaremos contigo muy pronto." limpiar los campos.</p>
+            <p>Agregar arriba de cada red social el logo de cada una de ellas.</p>
+            <p>Agregar arriba de las marcas de respaldo (HRC RACING, REPSOL, MONSTER ENERGY) los logos de cada una y hacerlos animados cuando pasa el cursor.</p>
+        </div>
+
+        <div class="prompt-card">
+            <div class="prompt-title">🔧 Tercer PROMPT</div>
+            <p>el carrusel debe mostrar una solo imagen a la vez y desplazarce por medio de flecha hacia otras imagenes.</p>
+            <p>la imagen de la XR 190 no muestra nada.</p>
+            <p>el video debe ser minimalista para que no ocupe tanta pantalla y mostrar una imagen de una moto que sirva para ocultar el link enlace y quede agradable a la vista.</p>
+            <p>Los logos interactivos de HRC RACING, REPSOL, MONSTER ENERGY no se ven.</p>
+        </div>
+
+        <div class="prompt-card">
+            <div class="prompt-title">🚀 Cuarto PROMPT</div>
+            <p>cambia la honda XR 190L por CRF1100L Africa Twin ES y en la imagen pone esta <a href="https://xpertmoto.com.au/cdn/shop/files/Honda-CRF1100L-Africa-Twin-ES-best-motorcycle-rental-sydney_60c59c3b-e6bb-4988-a7ca-3d39fe72044d.png?v=1776637592" target="_blank">https://xpertmoto.com.au/cdn/shop/files/Honda-CRF1100L-Africa-Twin-ES-best-motorcycle-rental-sydney_60c59c3b-e6bb-4988-a7ca-3d39fe72044d.png?v=1776637592</a></p>
+            <p>borra los nombre de HRC RACING, REPSOL y MONSTER ENERGY pero deja solamente los logos.</p>
+            <p>el cuadro donde esta el enlace al video debe ser de 200 px y que muestre una moto honda XR 250 y esa imagen sea el enlace al link.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

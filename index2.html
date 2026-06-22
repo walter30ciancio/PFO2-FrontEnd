@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honda Motos - Potencia, Tecnología y Confianza</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #E8151F;
+            --color-dark: #1a1a1a;
+            --color-light: #f5f5f5;
+            --color-gray: #666;
+            --color-accent: #FFB81C;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "🏍️";
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #a01015 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-dark);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* SOBRE NOSOTROS */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--color-light);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #ddd 0%, #ccc 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        /* SERVICIOS */
+        .services {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--color-dark);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--color-primary);
+            margin: 1rem auto 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--color-light);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .service-card p {
+            color: var(--color-gray);
+            line-height: 1.8;
+        }
+
+        /* TESTIMONIOS */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: var(--color-light);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .stars {
+            color: var(--color-accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--color-gray);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+            color: var(--color-dark);
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+        }
+
+        /* FORMULARIO DE CONTACTO */
+        .contact {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .form-button:hover {
+            background: #a01015;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 21, 31, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* CARRUSEL DE MOTOS */
+        .carousel {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-slide {
+            display: none;
+            flex-shrink: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .carousel-slide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-light) 0%, #f9f9f9 100%);
+            padding: 3rem;
+            border-radius: 10px;
+        }
+
+        .moto-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #ddd 0%, #ccc 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+
+        .moto-info h3 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .moto-specs {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .moto-specs li {
+            padding: 0.5rem 0;
+            color: var(--color-gray);
+            font-size: 1rem;
+        }
+
+        .moto-specs li::before {
+            content: "✓ ";
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .moto-description {
+            color: var(--color-gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .carousel-btn:hover {
+            background: #a01015;
+            transform: translateY(-2px);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .carousel-indicator.active {
+            background: var(--color-primary);
+            transform: scale(1.3);
+        }
+
+        .carousel-indicator:hover {
+            background: var(--color-accent);
+        }
+
+        .video-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            display: inline-block;
+            margin: 2rem 0;
+        }
+
+        .video-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(232, 21, 31, 0.3);
+        }
+
+        .video-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-box::after {
+            content: '▶️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-box:hover::after {
+            opacity: 1;
+        }
+        .video-section {
+            padding: 5rem 2rem;
+            background: var(--color-light);
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .about,
+            .services,
+            .contact,
+            .testimonials,
+            .video-section,
+            .carousel {
+                padding: 3rem 1rem;
+            }
+
+            .carousel-slide-content {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .moto-image {
+                height: 250px;
+            }
+
+            .moto-info h3 {
+                font-size: 2rem;
+            }
+
+            .carousel-controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .carousel-btn {
+                width: 100%;
+            }
+        }
+
+        /* BENEFICIOS DESTACADOS */
+        .benefits {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            min-width: 50px;
+        }
+
+        .benefit-text h3 {
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .benefit-text p {
+            color: var(--color-gray);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">Honda Motos</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#modelos">Modelos</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Potencia, Tecnología y Confianza</h1>
+            <p>Descubre las motos Honda que transformarán tu pasión en realidad</p>
+            <a href="#contact" class="cta-button">Solicita tu Cotización Ahora</a>
+        </div>
+    </section>
+
+    <!-- CARRUSEL DE MOTOS -->
+    <section class="carousel" id="modelos">
+        <div class="carousel-container">
+            <h2 class="section-title">Conoce Nuestros Modelos</h2>
+            
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <!-- Slide 1: Tornado 250 -->
+                    <div class="carousel-slide active">
+                        <div class="carousel-slide-content">
+                            <div class="moto-image" style="background-image: url('https://xpertmoto.com.au/cdn/shop/files/Honda-CB-Twister-250-best-motorcycle-rental-sydney.png?v=1696898500'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                            <div class="moto-info">
+                                <h3>Tornado 250</h3>
+                                <p class="moto-description">Potencia y estilo en perfecta armonía. La Tornado 250 es ideal para conductores que buscan rendimiento y comodidad en un paquete versátil.</p>
+                                <ul class="moto-specs">
+                                    <li>Motor 250cc 4 tiempos</li>
+                                    <li>45 HP de potencia</li>
+                                    <li>Tanque 13.5 litros</li>
+                                    <li>Frenos ABS</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: CRF1100L Africa Twin ES -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-content">
+                            <div class="moto-image" style="background-image: url('https://xpertmoto.com.au/cdn/shop/files/Honda-CRF1100L-Africa-Twin-ES-best-motorcycle-rental-sydney_60c59c3b-e6bb-4988-a7ca-3d39fe72044d.png?v=1776637592'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                            <div class="moto-info">
+                                <h3>CRF1100L Africa Twin ES</h3>
+                                <p class="moto-description">La reina indiscutible de la aventura. La CRF1100L es una máquina todoterreno de clase mundial, lista para conquistar cualquier terreno.</p>
+                                <ul class="moto-specs">
+                                    <li>Motor 1100cc bicilíndrico</li>
+                                    <li>101.3 HP de potencia</li>
+                                    <li>Tanque 24.8 litros - Autonomía infinita</li>
+                                    <li>Suspensión Showa de 200mm de recorrido</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: XR 150 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-content">
+                            <div class="moto-image" style="background-image: url('https://xpertmoto.com.au/cdn/shop/files/Honda-XR-150-best-motorcycle-rental-sydney.png?v=1696898439'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                            <div class="moto-info">
+                                <h3>XR 150</h3>
+                                <p class="moto-description">Compacta, eficiente y ágil. La XR 150 es la opción inteligente para movilidad urbana sin comprometer estilo.</p>
+                                <ul class="moto-specs">
+                                    <li>Motor 150cc de bajo consumo</li>
+                                    <li>13 HP de potencia</li>
+                                    <li>Tanque 10 litros</li>
+                                    <li>Bajo costo de mantenimiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: CB 1000R -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-content">
+                            <div class="moto-image" style="background-image: url('https://xpertmoto.com.au/cdn/shop/files/Honda-CB1000R-best-motorcycle-rental-sydney.png?v=1696898473'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                            <div class="moto-info">
+                                <h3>CB 1000R</h3>
+                                <p class="moto-description">Potencia extrema en un diseño clásico y elegante. La CB 1000R es para los verdaderos amantes de la velocidad y el estilo.</p>
+                                <ul class="moto-specs">
+                                    <li>Motor 1000cc 4 cilindros</li>
+                                    <li>145 HP de potencia pura</li>
+                                    <li>Aceleración 0-100 km/h en 3.1 seg</li>
+                                    <li>Sistema de frenado Brembo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: X-Blade 160 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-content">
+                            <div class="moto-image" style="background-image: url('https://xpertmoto.com.au/cdn/shop/files/Honda-XBlade-160-best-motorcycle-rental-sydney.png?v=1696898468'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                            <div class="moto-info">
+                                <h3>X-Blade 160</h3>
+                                <p class="moto-description">Agresiva, deportiva y económica. La X-Blade 160 es ideal para pilotos jóvenes que quieren expresar su personalidad.</p>
+                                <ul class="moto-specs">
+                                    <li>Motor 160cc de 4 válvulas</li>
+                                    <li>15.3 HP de potencia</li>
+                                    <li>Consumo ultra-eficiente</li>
+                                    <li>Diseño deportivo agresivo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6: XR 300L -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-content">
+                            <div class="moto-image" style="background-image: url('https://xpertmoto.com.au/cdn/shop/files/Honda-XR150L-best-motorcycle-rental-sydney.png?v=1696898434'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                            <div class="moto-info">
+                                <h3>XR 300L</h3>
+                                <p class="moto-description">Aventura definitiva en dos ruedas. La XR 300L combina versatilidad extrema con tecnología de punta para expediciones sin límites.</p>
+                                <ul class="moto-specs">
+                                    <li>Motor 300cc bicilíndrico</li>
+                                    <li>27 HP de potencia</li>
+                                    <li>Tanque 17.5 litros - Autonomía extrema</li>
+                                    <li>Suspensión todoterreno profesional</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn">← Anterior</button>
+                    <button class="carousel-btn" id="nextBtn">Siguiente →</button>
+                </div>
+
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active" data-slide="0"></div>
+                    <div class="carousel-indicator" data-slide="1"></div>
+                    <div class="carousel-indicator" data-slide="2"></div>
+                    <div class="carousel-indicator" data-slide="3"></div>
+                    <div class="carousel-indicator" data-slide="4"></div>
+                    <div class="carousel-indicator" data-slide="5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUADRO DE VIDEO -->
+    <section class="video-section">
+        <div class="video-container">
+            <h2 class="section-title">Mira el Video en Acción</h2>
+            <div style="text-align: center;">
+                <a href="https://www.youtube.com/shorts/kBrEvwQ5odA" target="_blank" class="video-box">
+                    <img src="https://xpertmoto.com.au/cdn/shop/files/Honda-XR150L-best-motorcycle-rental-sydney.png?v=1696898434" alt="Honda XR 250">
+                </a>
+                <p style="margin-top: 1.5rem; color: var(--color-gray); font-size: 1rem;">Haz clic en la imagen para ver el video</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">🏍️</div>
+            <div class="about-text">
+                <h2>Sobre Honda Motos</h2>
+                <p>Con más de 70 años de innovación y experiencia, Honda es sinónimo de calidad, rendimiento y confiabilidad en todo el mundo.</p>
+                <p>Ofrecemos una amplia gama de motocicletas diseñadas para cada tipo de conductor, desde modelos deportivos de alto rendimiento hasta cruisers cómodas para aventuras sin fin.</p>
+                <p>Nuestro compromiso es proporcionar tecnología de punta, durabilidad excepcional y un servicio al cliente incomparable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS DESTACADOS -->
+    <section class="benefits">
+        <div class="benefits-container">
+            <h2 class="section-title">Por Qué Elegir Honda</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">
+                        <h3>Tecnología de Vanguardia</h3>
+                        <p>Motores eficientes que combinan máximo rendimiento con consumo inteligente de combustible.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-text">
+                        <h3>Seguridad Garantizada</h3>
+                        <p>Sistemas de frenado avanzados y estabilidad superior en todas las condiciones.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-text">
+                        <h3>Mejor Valor</h3>
+                        <p>Precios competitivos con la mejor relación calidad-precio del mercado.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔧</div>
+                    <div class="benefit-text">
+                        <h3>Mantenimiento Accesible</h3>
+                        <p>Repuestos disponibles y servicio técnico especializado en toda la región.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌍</div>
+                    <div class="benefit-text">
+                        <h3>Medio Ambiente</h3>
+                        <p>Motos ecológicas con reducidas emisiones contaminantes.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">👥</div>
+                    <div class="benefit-text">
+                        <h3>Comunidad Global</h3>
+                        <p>Únete a millones de propietarios Honda satisfechos en todo el mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏪</div>
+                    <h3>Venta de Motos</h3>
+                    <p>Amplio catálogo de modelos nuevos con financiamiento flexible y garantía extendida disponible.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Servicio Técnico</h3>
+                    <p>Mantenimiento preventivo y reparaciones realizadas por técnicos certificados Honda.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Repuestos Originales</h3>
+                    <p>Piezas genuinas que garantizan rendimiento óptimo y durabilidad de tu moto.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>Capacitación</h3>
+                    <p>Cursos de seguridad y manejo defensivo para pilotos de todos los niveles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>App Honda Connect</h3>
+                    <p>Monitorea el estado de tu moto y recibe notificaciones de mantenimiento en tiempo real.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Soporte al Cliente</h3>
+                    <p>Asistencia 24/7 ante cualquier consulta o inconveniente que necesites resolver.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Compré mi Honda hace dos años y ha sido la mejor inversión. Excelente rendimiento, bajo consumo y el servicio técnico es impecable. ¡Totalmente recomendado!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div class="author-info">
+                            <h4>Juan Martínez</h4>
+                            <p>Conductor Profesional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"La potencia y maniobrabilidad de mi Honda me permiten disfrutar cada viaje. El equipo de ventas fue muy profesional y me ayudó a encontrar el modelo perfecto."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CR</div>
+                        <div class="author-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <p>Motociclista Aficionado</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Como mujer motociclista, aprecio la seguridad y la comodidad que ofrece Honda. He recomendado mi moto a varias amigas y todas están encantadas."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SL</div>
+                        <div class="author-info">
+                            <h4>Sofía López</h4>
+                            <p>Motociclista Urbana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Solicita tu Cotización</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico *</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                <button type="submit" class="form-button">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">🏍️ Honda Motos</div>
+                <p>Líderes en innovación y confiabilidad. Transformando pasiones en realidad desde 1949.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="YouTube">▶️</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#modelos">Modelos</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Garantía</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>📍 Junín, Buenos Aires, Argentina</p>
+                <p>📞 +54 (236) 123-4567</p>
+                <p>✉️ info@hondamotos.com.ar</p>
+                <p>🕐 Lun-Vie: 9:00-18:00 | Sáb: 10:00-14:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Honda Motos. Todos los derechos reservados. | Diseño Profesional y Responsivo</p>
+        </div>
+    </footer>
+
+    <script>
+        // FUNCIONALIDAD DEL CARRUSEL
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            // Remover clase active de todas las slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Mostrar la slide actual
+            slides[n].classList.add('active');
+            indicators[n].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Event listeners para botones
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+        // Event listeners para indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Auto-avance cada 8 segundos
+        setInterval(nextSlide, 8000);
+
+        // FORMULARIO
+        // Prevenir envío del formulario (es solo visual)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            alert(`¡Gracias ${nombre}! Tu solicitud ha sido recibida. Nos pondremos en contacto pronto.`);
+            this.reset();
+        });
+
+        // Animación suave de scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
