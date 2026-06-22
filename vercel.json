@@ -1,8 +1,10 @@
+
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/portada.html"
+      "destination": "/portada.html",
+      "permanent": true
     }
   ]
 }
