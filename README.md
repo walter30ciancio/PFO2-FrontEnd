@@ -1,7 +1,6 @@
-Datos del estudiante: Walter David Ciancio
+Datos del estudiante: Walter David Ciancio - Comision E
 
-Link al deploy unificado (un solo enlace de Vercel que dirija a la portada con las 
-tres opciones). 
+Link al deploy unificado: https://pfo-2-front-end-five.vercel.app/portada.html
 
 El prompt exacto utilizado:
 Primer PROMPT:
